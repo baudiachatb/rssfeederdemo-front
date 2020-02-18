@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="b-nav">
+    <div class="list-link" *ngFor="let item of listRss">
+      <a class ="rss-link" href="#"
+      (click)="onClickRssList(item?.urlRss)">{{item?.tieuDe}}</a>
+    </div>
+  </div>
+  <div class="b-list">
+    <div class="list-content" *ngFor="let item of listContent">
+    <a href="#" (click)="onClickContent(item.url)">{{ item.title}}</a>
+    </div>
+  </div>
+  <div class="b-content">
+    <div #screen id="content"></div>
+    <button id ="take-image" (click)="onTakeImage()">take image</button>
+    <div id="download">
+      <img #canvas>
+      <a #downloadLink></a>
+    </div>
+  </div>
+</div>
