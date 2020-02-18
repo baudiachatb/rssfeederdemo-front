@@ -52,7 +52,6 @@ export class AppComponent implements OnInit {
 
   onTakeImage() {
     html2canvas(this.screen.nativeElement).then(canvas => {
-      // this.canvas.nativeElement.src = canvas.toDataURL();
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/png');
       this.downloadLink.nativeElement.download = 'image.png';
       this.downloadLink.nativeElement.click();
