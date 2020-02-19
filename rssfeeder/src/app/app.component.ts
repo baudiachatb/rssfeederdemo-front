@@ -51,10 +51,31 @@ export class AppComponent implements OnInit {
   }
 
   onTakeImage() {
-    html2canvas(document.getElementById('content'), {allowTaint: true, useCORS: true}).then(canvas => {
+    html2canvas(document.getElementById('content'), { allowTaint: true, useCORS: true }).then(canvas => {
       this.downloadLink.nativeElement.href = canvas.toDataURL('image/jpg');
       this.downloadLink.nativeElement.download = 'image.jpg';
       this.downloadLink.nativeElement.click();
     });
+  }
+
+  onClickWebPage(type: string) {
+    this.listRss = null;
+    switch (type) {
+      case 'VnExpress':
+        this.http.get('http://localhost:9000/getdata/rsscontent?page=vnexpress').subscribe(
+          data => {
+            this.listRss = data;
+          }
+        );
+        break;
+      case 'Dantri':
+        this.http.get('http://localhost:9000/getdata/rsscontent?page=dantri').subscribe(
+          data => {
+            this.listRss = data;
+          }
+        );
+        break;
+      default: { }
+    }
   }
 }
