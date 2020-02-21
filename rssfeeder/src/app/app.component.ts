@@ -10,7 +10,9 @@ import html2canvas from 'html2canvas';
 })
 export class AppComponent implements OnInit {
   title = 'rssfeeder';
-
+  private page: string;
+  public link: string;
+  public path: string;
   @ViewChild('screen') screen: ElementRef;
   @ViewChild('canvas') canvas: ElementRef;
   @ViewChild('downloadLink') downloadLink: ElementRef;
@@ -29,9 +31,10 @@ export class AppComponent implements OnInit {
     );
   }
 
-  onClickRssList(link: any) {
+  onClickRssList(link: any, tieude: string) {
+    this.path = tieude;
     this.listContent = null;
-    this.http.get('http://localhost:9000/getdata/content?url=' + link).subscribe(
+    this.http.get(`http://localhost:9000/getdata/content?page=${this.page}&&url=` + link).subscribe(
       listLinkContent => {
         this.listContent = listLinkContent;
       }
@@ -41,11 +44,13 @@ export class AppComponent implements OnInit {
   onClickContent(link: any) {
     const contentEl = document.getElementById('content');
     contentEl.innerHTML = null;
-    this.http.get('http://localhost:9000/getdata/post?url=' + link).pipe(
+    this.http.get(`http://localhost:9000/getdata/post?page=${this.page}&&url=` + link).pipe(
       pluck('content')
     ).subscribe(
       (content: string) => {
-        contentEl.innerHTML = content;
+        console.log(content);
+        content.replace(/Dân trí/gmu,'');
+        contentEl.innerHTML = (content + `<div class="link" style = "position: absolute;right: 2px; font-size: 0.8em; color: f666666; text-decoration: underline;">${this.link} ${this.path}`);
       }
     );
   }
@@ -60,8 +65,11 @@ export class AppComponent implements OnInit {
 
   onClickWebPage(type: string) {
     this.listRss = null;
+    this.path = null;
     switch (type) {
       case 'VnExpress':
+        this.page = 'vnexpress';
+        this.link = 'VnExpress.net //';
         this.http.get('http://localhost:9000/getdata/rsscontent?page=vnexpress').subscribe(
           data => {
             this.listRss = data;
@@ -69,6 +77,8 @@ export class AppComponent implements OnInit {
         );
         break;
       case 'Dantri':
+        this.link = 'Dantri.com.vn //';
+        this.page = 'dantri';
         this.http.get('http://localhost:9000/getdata/rsscontent?page=dantri').subscribe(
           data => {
             this.listRss = data;

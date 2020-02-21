@@ -3,62 +3,94 @@ body{
   height: 100%;
   padding: 0;
   margin: 0;
+  background-color: #eeeeee;
+  overflow: hidden;
 }
 .container{
+  overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
   min-height: 100vh;
-  height: 100%;
+  height: 95%;
   display: grid;
-  grid-template-columns: 450px 1fr 1fr;
-  grid-template-rows: 15px 1fr auto;
+  grid-template-columns: 100px 100px 100px 100px 100px 100px 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 90vh;
   grid-gap: 3px;
   grid-template-areas:
-  "webpage content1 content1"
-  "nav content1 content1"
-  "list content1 content1"
-  "list content1 content1"
+  "webpage nav nav list list list content1 content1 content1 content1 content1"
+  "webpage nav nav list list list content1 content1 content1 content1 content1"
+  "webpage nav nav list list list content1 content1 content1 content1 content1"
+  "webpage nav nav list list list content1 content1 content1 content1 content1"
   ;
   justify-content: center;
+  background-color: #ffffff;
 }
 .b-webpage-list{
-  height: 15px;
   grid-area: webpage;
+  height: 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
   grid-column-gap: 3px;
   margin-bottom: 10px;
+  color: #222222;
+  grid-row-gap: 10px;
 }
 .webpage{
-  width: fit-content;
-  text-decoration: underline;
+  width: 95%;
+  padding: 5px 0;
+  background-color: darkgreen;
+  text-indent: 5px;
+  border-radius: 4px 4px;
+  box-shadow: 2px 2px lightgray;
+  border: 1px solid lightgreen;
+  transition: 0.1s;
+}
+.webpage:hover{
+  border: 3px solid lightgreen;
+}
+.webpage a{
+  color: #dddddd;
 }
 .list-link{
-  border: solid 1px lightcyan;
+  border: solid 1px #999999;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
-  background-color: #444888;
-
+  width: 90%;
+  border-top-right-radius: 7px 7px;
+  border-bottom-right-radius: 7px 7px;
+  transition: 0.15s;
+}
+.list-link:hover{
+  background-color: #555555;
+}
+.list-link:hover a{
+  color: #ffffff;
 }
 .list-link a{
-  color: #ddd;
+  color: #444444;
+  text-indent: 10px;
 }
 .b-nav{
   grid-area: nav;
   overflow-y: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  border: solid 1px lightgray;
+  grid-template-columns: 1fr;
+  grid-template-rows:auto;
+  overflow-y: auto;
+  height: 95vh;
 }
 .b-list{
   grid-area: list;
   overflow-y: auto;
-  border: solid 1px lightgray;
-  background-color: #dcd5f6;
-  height: 85.2vh;
-  overflow-y: auto;
+  height: 95vh;
+}
+.b-list span{
+  color: darkred;
+}
+::-webkit-scrollbar{
+  display: none;
 }
 a{
   text-decoration: none;
@@ -68,53 +100,77 @@ a{
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   row-gap: 2px;
-  border-bottom: solid 1px #555;
+  border: solid 1px #aaaaaa;
+  border-bottom-right-radius: 7px 7px;
+  border-top-right-radius: 7px 7px;
   margin-top: 5px;
   margin-bottom: 5px;
-  padding: 4px 10px;
-  // background-color: #dcd5f6;
+  padding: 4px 0;
+  text-align: left;
+  font-size: 0.8em;
+  max-width: 95%;
+  transition: 0.2s;
+}
+.list-content:hover{
+  background-color: #555555;
+}
+.list-content:hover a{
+  color: #ffffff;
 }
 .list-content a{
-  color: #d67231;
-  text-decoration: none;
+  color: #555555;
+  text-decoration: underline;
 }
 .b-content{
-  max-width: 900px;
+  display: block;
+  max-width: 700px;
   grid-area: content1;
-  padding-right: 15px;
-  background-color: #dddddd;
-}
-.b-content #content {
-  padding: 10px 10px;
-  width: 100%;
+  height: 95vh;
+  overflow-y: auto;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
+  color: #444444;
+}
+.b-content #content {
+  padding: 10px 0;
+  max-width: fit-content;
   text-align: center;
   overflow-y: auto;
-  max-height: 93vh;
+  max-height: 97vh;
+  font-size: 0.8em;
+  display: block;
+  box-sizing: border-box;
+  font-weight: 200;
+  position: relative;
 }
-// #content{
-//   text-align: left;
-//   width: 100%;
-//   margin-right: 30px;
-// }
+.b-content::-webkit-scrollbar{
+  display: none;
+}
+.b-content #content::-webkit-scrollbar{
+  display: none;
+}
 #take-image{
   width: 100px;
   height: 100px;
+  outline: none;
   border-radius: 50px 50px;
   position: fixed;
-  bottom: 30px;
+  bottom: 50px;
   right: 30px;
   background-color: lightblue;
   color: #222;
   font-size: large;
+  cursor: pointer;
 }
 .sidebar_1{
-  width: 90%;
+  max-width: 600px;
+  box-sizing: border-box;
+  margin-left: 80px;
+}
+#content .link{
+    position: absolute;
+    right: 2px;
+    bottom: 10px;
 }
 
-.Normal{
-  text-align: left;
-  width: 90%;
-
-}

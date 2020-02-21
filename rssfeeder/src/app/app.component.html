@@ -9,16 +9,21 @@
   </div>
   <div class="b-nav">
     <div class="list-link" *ngFor="let item of listRss">
-      <a class="rss-link" href="#" (click)="onClickRssList(item?.urlRss)">{{item?.tieuDe}}</a>
+      <a class="rss-link" href="#" (click)="onClickRssList(item?.urlRss, item?.tieuDe)">{{item?.tieuDe}}</a>
     </div>
   </div>
   <div class="b-list">
     <div class="list-content" *ngFor="let item of listContent">
-      <a href="#" (click)="onClickContent(item.url)">{{ item.title}}</a>
+      <a href="#" (click)="onClickContent(item.url)"><span>> </span>{{ item.title}}</a>
     </div>
   </div>
   <div class="b-content">
-    <div #screen id="content"></div>
+    <div #screen id="content">
+
+    <div class="link">
+      {{link}} {{path}}
+    </div>
+    </div>
     <button id="take-image" (click)="onTakeImage()">take image</button>
     <div id="download">
       <img #canvas>
