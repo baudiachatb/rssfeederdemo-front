@@ -1,4 +1,4 @@
-body{
+body {
   width: 100%;
   height: 100%;
   padding: 0;
@@ -6,7 +6,7 @@ body{
   background-color: #eeeeee;
   overflow: hidden;
 }
-.container{
+.container {
   overflow: hidden;
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
@@ -17,15 +17,14 @@ body{
   grid-template-rows: 90vh;
   grid-gap: 3px;
   grid-template-areas:
-  "webpage nav nav list list list content1 content1 content1 content1 content1"
-  "webpage nav nav list list list content1 content1 content1 content1 content1"
-  "webpage nav nav list list list content1 content1 content1 content1 content1"
-  "webpage nav nav list list list content1 content1 content1 content1 content1"
-  ;
+    "webpage nav nav list list list content1 content1 content1 content1 content1"
+    "webpage nav nav list list list content1 content1 content1 content1 content1"
+    "webpage nav nav list list list content1 content1 content1 content1 content1"
+    "webpage nav nav list list list content1 content1 content1 content1 content1";
   justify-content: center;
   background-color: #ffffff;
 }
-.b-webpage-list{
+.b-webpage-list {
   grid-area: webpage;
   height: 40px;
   display: grid;
@@ -36,7 +35,7 @@ body{
   color: #222222;
   grid-row-gap: 10px;
 }
-.webpage{
+.webpage {
   width: 95%;
   padding: 5px 0;
   background-color: darkgreen;
@@ -46,13 +45,13 @@ body{
   border: 1px solid lightgreen;
   transition: 0.1s;
 }
-.webpage:hover{
+.webpage:hover {
   border: 3px solid lightgreen;
 }
-.webpage a{
+.webpage a {
   color: #dddddd;
 }
-.list-link{
+.list-link {
   border: solid 1px #999999;
   display: flex;
   justify-content: left;
@@ -62,40 +61,40 @@ body{
   border-bottom-right-radius: 7px 7px;
   transition: 0.15s;
 }
-.list-link:hover{
+.list-link:hover {
   background-color: #555555;
 }
-.list-link:hover a{
+.list-link:hover a {
   color: #ffffff;
 }
-.list-link a{
+.list-link a {
   color: #444444;
   text-indent: 10px;
 }
-.b-nav{
+.b-nav {
   grid-area: nav;
   overflow-y: auto;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows:auto;
+  grid-template-rows: auto;
   overflow-y: auto;
   height: 95vh;
 }
-.b-list{
+.b-list {
   grid-area: list;
   overflow-y: auto;
   height: 95vh;
 }
-.b-list span{
+.b-list span {
   color: darkred;
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   display: none;
 }
-a{
+a {
   text-decoration: none;
 }
-.list-content{
+.list-content {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto;
@@ -111,17 +110,17 @@ a{
   max-width: 95%;
   transition: 0.2s;
 }
-.list-content:hover{
+.list-content:hover {
   background-color: #555555;
 }
-.list-content:hover a{
+.list-content:hover a {
   color: #ffffff;
 }
-.list-content a{
+.list-content a {
   color: #555555;
   text-decoration: underline;
 }
-.b-content{
+.b-content {
   display: block;
   max-width: 700px;
   grid-area: content1;
@@ -143,14 +142,27 @@ a{
   box-sizing: border-box;
   font-weight: 200;
   position: relative;
+  div {
+    p.description{
+      padding: 0 !important;
+      font-size: 18px !important;
+      text-align: justify !important;
+    }
+
+    p.Normal{
+      padding: 0 !important;
+      line-height: 20px !important;
+        text-align: justify !important;
+    }
+  }
 }
-.b-content::-webkit-scrollbar{
+.b-content::-webkit-scrollbar {
   display: none;
 }
-.b-content #content::-webkit-scrollbar{
+.b-content #content::-webkit-scrollbar {
   display: none;
 }
-#take-image{
+#take-image {
   width: 100px;
   height: 100px;
   outline: none;
@@ -163,14 +175,13 @@ a{
   font-size: large;
   cursor: pointer;
 }
-.sidebar_1{
+.sidebar_1 {
   max-width: 600px;
   box-sizing: border-box;
   margin-left: 80px;
 }
-#content .link{
-    position: absolute;
-    right: 2px;
-    bottom: 10px;
+#content .link {
+  position: absolute;
+  right: 2px;
+  bottom: 10px;
 }
-

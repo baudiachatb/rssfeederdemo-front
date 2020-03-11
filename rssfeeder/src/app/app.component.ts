@@ -50,7 +50,8 @@ export class AppComponent implements OnInit {
       (content: string) => {
         console.log(content);
         content.replace(/Dân trí/gmu,'');
-        contentEl.innerHTML = (content + `<div class="link" style = "position: absolute;right: 2px; font-size: 0.8em; color: f666666; text-decoration: underline;">${this.link} ${this.path}`);
+        contentEl.innerHTML = (content + `<div class="link" style = "position: absolute;right: 2px; font-size: 0.8em; color: f666666;
+         text-decoration: underline;">${this.link} ${this.path}`);
       }
     );
   }
